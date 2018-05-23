@@ -1,1 +1,2 @@
-# SLK_BOOTCAMP_MAY_2018
+# SLK Bootcamp training
+## May 2018
