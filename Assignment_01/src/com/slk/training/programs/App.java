@@ -11,7 +11,7 @@ import com.slk.training.util.KeyboardUtil;
 
 public class App {
 
-	static final String DAO_FACTORY_TYPE = "jdbc";
+	static final String DAO_FACTORY_TYPE = "JDBC";
 	ContactsDao dao;
 
 	public App() {
