@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>My first webapp</title>
+</head>
+<body>
+	<h1>My first webapp</h1>
+	<hr>
+	<h2>Hello, SLK!</h2>
+	
+	<p>
+		<a href="./hello">Click here</a> to get a hello message
+	</p>
+	
+	<form action="greet" method="POST">
+		<div>
+		<label>What's your name?</label>
+		<input type="text" name="username" placeholder="enter your name">
+		</div>
+		
+		<div>
+			<label>Choose a color</label>
+			
+			<label><input type="radio" name="color" value="#f00"> Red</label>
+			<label><input type="radio" name="color" value="#0f0"> Green</label>
+			<label><input type="radio" name="color" value="#00f" checked> Blue</label>
+		</div>
+		
+		<div>
+			<label>What type of movies do you like?</label>
+			
+			<label><input type="checkbox" name="genre" value="Comedy"> Comedy</label>
+			<label><input type="checkbox" name="genre" value="Romance"> Romance</label>
+			<label><input type="checkbox" name="genre" value="Action"> Action</label>
+			<label><input type="checkbox" name="genre" value="Adventure"> Adventure</label>
+			<label><input type="checkbox" name="genre" value="SciFi"> SciFi</label>
+			<label><input type="checkbox" name="genre" value="Crime"> Crime</label>
+		</div>
+		<button>Get greeting</button>
+	</form>
+	
+	
+	<hr>
+	<form action="get-contacts-from-city" method="GET">
+		<label>Enter the city name: </label>
+		<input type="text" name="city" placeholder="enter city...">
+		<button>Submit</button>
+	</form>
+	
+</body>
+</html>
+
+
+
+
+
+
