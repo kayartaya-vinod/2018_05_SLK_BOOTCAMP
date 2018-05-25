@@ -72,7 +72,18 @@ public class ContactsDaoJdbcImpl implements ContactsDao {
 
 	@Override
 	public void deleteContact(Integer id) throws DaoException {
-
+		String sql = "delete from contacts where id=?";
+		try (Connection conn = DbUtil.getConnection();
+				PreparedStatement stmt = conn.prepareStatement(sql);) {
+			stmt.setInt(1, id);
+			int rc = stmt.executeUpdate();
+			if(rc==0) {
+				throw new DaoException("Invalid id for deletion!");
+			}
+			
+		} catch (SQLException | ClassNotFoundException ex) {
+			throw new DaoException(ex);
+		}
 	}
 
 	@Override

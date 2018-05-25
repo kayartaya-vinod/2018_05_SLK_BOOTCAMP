@@ -1,9 +1,9 @@
 package com.slk.training.web;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -29,20 +29,22 @@ public class GetContactsFromCityServlet extends HttpServlet {
 			
 			if(city==null || city.trim().length()==0) {
 				list = dao.getAll();
+				request.setAttribute("heading", "List of all contacts");
 			}
 			else {
 				list = dao.getContactsFromCity(city);
+				request.setAttribute("heading", "List of contacts from city: " + city);
 			}
+
+			// store the "list" in a place where other servlets/JSPs can access
+			request.setAttribute("contacts", list);
 			
-			PrintWriter out = response.getWriter();
-			out.printf("<h1>Contacts from city '%s' are</h1>", city);
-			out.println("<ol>");
-			for(Contact c: list) {
-				out.printf("<li>%s (%s, %s)</li>", 
-						c.getFirstname(), c.getEmail(), c.getPhone());
-			}
-			out.println("</ol>");
-			out.close();
+			
+			// forward the control to the view (JSP/Servlet)
+			// RequestDispatcher instance know how to invoke the service function 
+			// of the JSP/Servlet
+			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/contact-list.jsp");
+			rd.forward(request, response);
 			
 		} catch (DaoException e) {
 			throw new ServletException(e);
