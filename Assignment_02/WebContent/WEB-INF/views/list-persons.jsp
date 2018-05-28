@@ -19,7 +19,9 @@
 					<td>${p.firstname} ${p.lastname}</td>
 					<td>${p.phone}</td>
 					<td>${p.email}</td>
-					<td><a href="./delete-person?id=${p.id}">Delete</a></td>
+					<td>
+					<a href="./edit-person?id=${p.id}">Edit</a> | 
+					<a href="./delete-person?id=${p.id}">Delete</a></td>
 				</tr>
 			</c:forEach>
 		</tbody>

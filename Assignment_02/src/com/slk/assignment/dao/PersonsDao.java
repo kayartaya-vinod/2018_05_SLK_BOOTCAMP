@@ -10,10 +10,16 @@ public interface PersonsDao {
 	
 	public Person addPerson(Person person) throws DaoException;
 	
+	public Person getById(Integer id) throws DaoException;
+
+	public Person updatePerson(Person person) throws DaoException;
+
 	public void deletePerson(Integer id) throws DaoException;
 	
 	// QUERIES
 	
 	public List<Person> getAll() throws DaoException;
+
+	
 
 }
