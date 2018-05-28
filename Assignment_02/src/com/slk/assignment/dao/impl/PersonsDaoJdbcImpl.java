@@ -38,38 +38,6 @@ public class PersonsDaoJdbcImpl implements PersonsDao {
 		}
 	}
 
-	@Override
-	public Person getById(Integer id) throws DaoException {
-		String sql = "select * from persons where id=?";
-		try (Connection conn = DbUtil.getConnection(); PreparedStatement stmt = conn.prepareStatement(sql);) {
-			stmt.setInt(1, id);
-			try (ResultSet rs = stmt.executeQuery();) {
-				if (rs.next()) {
-					return personFromResultSet(rs);
-				}
-			}
-			return null;
-		} catch (SQLException | ClassNotFoundException e) {
-			throw new DaoException(e);
-		}
-	}
-
-	@Override
-	public Person updatePerson(Person person) throws DaoException {
-		String sql = "update persons set firstname=?, lastname=?, email=?, phone=? where id=?";
-		try (Connection conn = DbUtil.getConnection(); PreparedStatement stmt = conn.prepareStatement(sql);) {
-
-			stmt.setString(1, person.getFirstname());
-			stmt.setString(2, person.getLastname());
-			stmt.setString(3, person.getEmail());
-			stmt.setString(4, person.getPhone());
-			stmt.setInt(5, person.getId());
-			stmt.executeUpdate();
-			return person;
-		} catch (SQLException | ClassNotFoundException e) {
-			throw new DaoException(e);
-		}
-	}
 
 	@Override
 	public void deletePerson(Integer id) throws DaoException {

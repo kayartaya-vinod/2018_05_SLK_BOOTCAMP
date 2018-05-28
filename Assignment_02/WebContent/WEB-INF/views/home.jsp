@@ -28,32 +28,32 @@
 <body>
 	<h1>Assignment 2 - Person Manager</h1>
 	<hr >
-	<h3>${title==null? "Add person details" : title}</h3>
+	<h3>Add person details</h3>
 	
-	<form action='${person==null?"./add-person":"./update-person"}' id="f1" method="POST">
+	<form action="./add-person" id="f1" method="POST">
 		<input type="hidden" name="id" value="${person.id}">
 		<div>
 			<label for="firstname">Firstname</label>
 			<input type="text" id="firstname" name="firstname" 
-				placeholder="enter firstname" value="${person.firstname}">
+				placeholder="enter firstname" >
 		</div>
 		
 		<div>
 			<label for="lastname">Lastname</label>
 			<input type="text" id="lastname" name="lastname" 
-				placeholder="enter lastname" value="${person.lastname}">
+				placeholder="enter lastname" >
 		</div>
 		
 		<div>
 			<label for="email">Email address</label>
 			<input type="text" id="email" name="email" size="50" 
-				placeholder="enter email" value="${person.email}">
+				placeholder="enter email" >
 		</div>
 		
 		<div>
 			<label for="phone">Phone number</label>
 			<input type="text" id="phone" name="phone" size="30" 
-				placeholder="enter phone" value="${person.phone}">
+				placeholder="enter phone" >
 		</div>
 		
 		<div>
