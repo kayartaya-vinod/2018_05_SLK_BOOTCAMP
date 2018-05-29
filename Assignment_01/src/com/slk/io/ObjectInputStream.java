@@ -13,6 +13,7 @@ public class ObjectInputStream<T> extends java.io.ObjectInputStream {
 		super(in);
 	}
 
+	@SuppressWarnings("unchecked")
 	public T readInstance() throws IOException, ClassNotFoundException {
 		Object obj = super.readObject();
 		return (T) obj;
