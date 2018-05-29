@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script type="text/javascript" src="./assets/jquery/jquery-3.3.1.js"></script>
+<script type="text/javascript">
+	if($) {
+		console.log("jQuery is available");
+		console.log("$ is a", typeof $);
+		console.log("$==jQuery is", $==jQuery);
+		
+		// based on the argument passed to the $ function, it behaves differently
+		
+		// 1. if you supply a function to the $ function, then the supplied function
+		// is executed when the DOM is completely ready
+		// $(function(){});
+		
+		// 2. if you supply a string to the $ function, then jQuery will assume that
+		// it is a selector and looks for matching HTML elements
+		
+		// dom-ready event handler
+		$(function(){
+			// SAFELY ASSUME THAT HTML/DOM IS COMPLETELY READY
+			
+			// tag/element selector
+			// $("h1").css("border", "2px solid red");
+			
+			// id selector: return an array of all elements having id="list1"
+			// $("#list1").css("border", "2px solid red");
+			
+			// css classname selector: array of elements having class="a"
+			// the elements may have other css class names as well
+			// $(".a").css("border", "2px solid red");
+			
+			// combination of tagname + classname
+			// $("li.a").css("border", "2px solid red");
+			
+			// parent-child relationship
+			// $("ul#list1 > li.a").css("border", "2px solid red");
+			
+			// ancestor-descendant relationship
+			// $("ul#list1 li.a").css("border", "2px solid red");
+			
+			// pseudo selectors
+			$("li:first").css("border", "2px solid red");
+			$("li:last").css("border", "2px solid blue");
+			$("li:first-child").css("background-color", "yellow");
+			$("#list1 > li:eq(3)").css("background-color", "lime");
+		});
+		// HTML /DOM IS NOT READY YET
+	}
+</script>
+</head>
+<body>
+	<h1 class="a">JQuery Demo</h1>
+	<hr>
+	<ul>
+		<li class="a">List item 1</li>
+		<li>List item 2</li>
+		<li>List item 3</li>
+		<li>List item 4</li>
+		<li>List item 5</li>
+	</ul>
+	
+	<h1>Here is another list</h1>
+
+	<ul id="list1">
+		<li>List item 1</li>
+		<li class="a">List item 2</li>
+		<li class="a b">List item 3</li>
+		<li class="b">List item 4</li>
+		<li>List item 5
+			<ul>
+				<li class="a">List item 5.1</li>
+				<li class="a b">List item 5.2</li>
+				<li class="a c">List item 5.3</li>
+				
+			</ul>
+		</li>
+	</ul>
+
+
+</body>
+</html>
