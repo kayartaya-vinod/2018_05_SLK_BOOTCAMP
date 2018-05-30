@@ -6,8 +6,10 @@
 	<c:when test="${fn:length(sessionScope.friendNames)>0}">
 		<h3>Here are your friend...</h3>
 		<ol type="A">
-			<c:forEach items="${sessionScope.friendNames}" var="fname">
-				<li>${fname}</li>
+			<c:forEach varStatus="x" items="${sessionScope.friendNames}" var="fname">
+				<li>${fname}
+					<a href="./delete-name?index=${x.index}">&times;</a>
+				</li>
 			</c:forEach>
 		</ol>
 	</c:when>
