@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script type="text/javascript" src="./assets/jquery/jquery-3.3.1.js"></script>
+<script type="text/javascript">
+	$(function(){
+		
+		$("h1")
+			.before("***")
+			.after("###")
+			.prepend("%%%")
+			.append("$$$");
+		
+		var names = ["Vinod", "Shyam", "John", "Jane", "Smith"];
+		
+		// when a string is supplied to the $() and it is a element declaration,
+		// jQuery will create a new HTML element in the memory with the same
+		// and we can add those elements to the DOM when needed
+		var list = $("<ul>");
+		names.forEach(function(name){
+			$("<li>").html(name).appendTo(list);
+		});
+		list.appendTo("body");
+		
+		var pics = ["cricket", "cycling", "dirtbike", "football", "surfing", "swimming"];
+		var imgDiv = $("<div>").attr("id", "images");
+		pics.forEach(function(pic){
+			$("<img>")
+			.attr("src", "assets/images/"+pic+".jpeg")
+			.css({
+				"position": "fixed",
+				"left": "50px",
+				"width": "500px",
+				"height": "400px"
+			})
+			.click(function(){
+				$(this).fadeOut(1000, function(){
+					$(this).prependTo("div#images").css("display", "block");
+				});
+			})
+			.appendTo(imgDiv);
+		});
+		
+		imgDiv.appendTo("body");
+	});
+</script>
+</head>
+<body>
+	<h1>JQuery Demo</h1>
+	<hr>
+	
+
+
+</body>
+</html>

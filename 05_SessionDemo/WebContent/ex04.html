@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<style>
+.slide{
+	position: fixed;
+	left: 50px;
+	width: 500px;
+	height: 400px;
+}
+</style>
+
+<script type="text/javascript" src="./assets/jquery/jquery-3.3.1.js"></script>
+<script type="text/javascript">
+	$(function(){
+		
+		$("h1")
+			.before("***")
+			.after("###")
+			.prepend("%%%")
+			.append("$$$");
+		
+		var names = ["Vinod", "Shyam", "John", "Jane", "Smith"];
+		
+		var list = $("<ul>");
+		names.forEach(function(name){
+			$("<li>").html(name).appendTo(list);
+		});
+		list.appendTo("body");
+		
+		var pics = ["cricket", "cycling", "dirtbike", "football", "surfing", "swimming"];
+		var imgDiv = $("<div>").attr("id", "images");
+		pics.forEach(function(pic){
+			$("<img>")
+			.attr("src", "assets/images/"+pic+".jpeg")
+			.addClass("slide")
+			.appendTo(imgDiv);
+		});
+		
+		imgDiv.appendTo("body");
+		function changeSlide() {
+			$("div#images > img:last").fadeOut(2000, function(){
+				$(this).prependTo("div#images").css("display", "block");
+				changeSlide();
+			});
+		}
+		changeSlide();
+		
+		// setInterval(changeSlide, 2500);
+	});
+	
+
+</script>
+</head>
+<body>
+	<h1>JQuery Demo</h1>
+	<hr>
+	
+
+
+</body>
+</html>

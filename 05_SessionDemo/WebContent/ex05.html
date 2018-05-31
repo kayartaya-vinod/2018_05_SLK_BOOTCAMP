@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jQuery Demos</title>
+<script type="text/javascript" src="./assets/jquery/jquery-3.3.1.js"></script>
+
+<script>
+	
+	$(function(){
+		$(".err").hide();
+	});
+	
+	function validate() {
+		$(".err").hide();
+		var fname = $("input[name=first_name]").val().trim();
+		var isValid = true;
+		
+		if(!fname) {
+			$("#err_fname_required").fadeIn(500);
+			isValid = false;
+		}
+		else if(fname.length<3) {
+			$("#err_fname_minlength").fadeIn(300);
+			isValid = false;
+		}
+		
+		return isValid;
+	}
+	
+</script>
+</head>
+<body>
+
+	<h1>jQuery demos</h1>
+	<h2>Form handling</h2>
+	<hr>
+	
+	<form action="ex05_handler.jsp" method="POST" onsubmit="return validate()">
+		<div>
+			<label for="fname">Firstname</label>
+			<input type="text" id="fname" name="first_name">
+			<span id="err_fname_required" class="err">Firstname is required</span>
+			<span id="err_fname_minlength" class="err">Minimum 3 letters required</span>
+		</div>
+		
+		<div>
+			<input type="submit" value="Submit" >
+			<button type="submit"><img src="assets/images/swimming.jpeg" style="width: 50px"> Submit</button>
+		</div>
+	</form>
+
+</body>
+</html>
