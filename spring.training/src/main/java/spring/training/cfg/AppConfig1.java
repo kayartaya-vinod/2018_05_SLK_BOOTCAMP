@@ -1,6 +1,7 @@
 package spring.training.cfg;
 
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Scope;
 
 import spring.training.dao.ContactsDao;
@@ -9,6 +10,7 @@ import spring.training.dao.impl.ContactsDaoJdbcImpl;
 
 // this is a substitution for the beans.xml file
 // the class --> <beans>...</beans>
+@Configuration
 public class AppConfig1 {
 
 	// a method here is equivalent of <bean>...</bean>
