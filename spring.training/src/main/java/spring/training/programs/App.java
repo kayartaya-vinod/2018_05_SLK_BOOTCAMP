@@ -3,7 +3,9 @@ package spring.training.programs;
 import java.util.InputMismatchException;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.stereotype.Component;
 
 import spring.training.cfg.AppConfig4;
 import spring.training.dao.ContactsDao;
@@ -12,20 +14,18 @@ import spring.training.entity.Contact;
 import spring.training.util.DateUtil;
 import spring.training.util.KeyboardUtil;
 
+@Component
 public class App {
 
+	@Autowired
 	ContactsDao dao;
 
-	@SuppressWarnings("resource")
-	public App() {
+	public static void main(String[] args) {
 		AnnotationConfigApplicationContext ctx;
 		ctx = new AnnotationConfigApplicationContext(AppConfig4.class);
-		dao = ctx.getBean("dao", ContactsDao.class);
-	}
-
-	public static void main(String[] args) {
-		App app = new App();
+		App app = ctx.getBean(App.class);
 		app.start();
+		ctx.close();
 	}
 
 	public void start() {

@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 @Configuration
-@ComponentScan(basePackages = { "spring.training.dao.impl" })
+@ComponentScan(basePackages = { "spring.training.dao.impl", "spring.training.programs" })
 public class AppConfig4 {
 
 	@Bean // (autowire = Autowire.BY_NAME)
