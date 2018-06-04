@@ -4,10 +4,11 @@ import java.util.InputMismatchException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.stereotype.Component;
 
-import spring.training.cfg.AppConfig4;
+import spring.training.cfg.AppConfig5;
 import spring.training.dao.ContactsDao;
 import spring.training.dao.DaoException;
 import spring.training.entity.Contact;
@@ -18,11 +19,12 @@ import spring.training.util.KeyboardUtil;
 public class App {
 
 	@Autowired
+	@Qualifier("hibernateTemplateDao")
 	ContactsDao dao;
 
 	public static void main(String[] args) {
 		AnnotationConfigApplicationContext ctx;
-		ctx = new AnnotationConfigApplicationContext(AppConfig4.class);
+		ctx = new AnnotationConfigApplicationContext(AppConfig5.class);
 		App app = ctx.getBean(App.class);
 		app.start();
 		ctx.close();

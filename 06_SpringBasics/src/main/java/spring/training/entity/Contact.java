@@ -2,9 +2,23 @@ package spring.training.entity;
 
 import java.util.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "contacts")
 public class Contact {
+	
+	@Id 
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id; // sample value: 74,
+	@Column(name = "first_name")
 	private String firstname; // sample value: "Kirby",
+	@Column(name = "last_name")
 	private String lastname; // sample value: "Wasielewicz",
 	private String email; // sample value: "kwasielewicz21@wiley.com",
 	private String gender; // sample value: "Male",
