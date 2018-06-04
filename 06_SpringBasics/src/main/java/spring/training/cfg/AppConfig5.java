@@ -10,13 +10,21 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.orm.hibernate5.HibernateTemplate;
+import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import spring.training.entity.Contact;
 
+@EnableTransactionManagement
 @Configuration
 @ComponentScan(basePackages = { "spring.training.dao", "spring.training.programs" })
 public class AppConfig5 {
+	
+	@Bean
+	public HibernateTransactionManager txMgr(SessionFactory sf) {
+		return new HibernateTransactionManager(sf);
+	}
 
 	@Bean
 	public HibernateTemplate ht(SessionFactory sf) {

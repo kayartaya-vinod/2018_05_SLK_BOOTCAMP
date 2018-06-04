@@ -13,6 +13,7 @@ import spring.training.entity.Contact;
 @Component("hibernateTemplateDao")
 public class ContactsDaoHibernateTemplateImpl implements ContactsDao {
 
+	
 	@Autowired(required = false)
 	HibernateTemplate template;
 
