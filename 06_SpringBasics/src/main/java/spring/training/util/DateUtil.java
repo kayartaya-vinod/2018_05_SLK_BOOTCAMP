@@ -17,15 +17,17 @@ public final class DateUtil {
 	}
 
 	public static String toString(Date date) {
-		if (date == null)
+		try {
+			return sdf.format(date);
+		} catch (Exception e) {
 			return null;
-		return sdf.format(date);
+		}
 	}
 
 	public static Date toDate(String date) {
 		try {
 			return sdf.parse(date);
-		} catch (ParseException e) {
+		} catch (Exception e) {
 			return null;
 		}
 	}
